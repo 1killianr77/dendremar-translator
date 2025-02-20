@@ -1,0 +1,166 @@
+<div class="container">
+  <div [hidden]="submitted"> 
+    <h1>Dendremar Translator</h1>
+    <form (ngSubmit)="onSubmit()" #translatorForm="ngForm">
+  
+      <div class="form-group">
+  
+        <label for="mood">Mood</label>
+        <select class="form-control" id="mood"
+          [(ngModel)] = "model.mood" name="mood">
+          <option *ngFor="let m of mood" [value]="m">{{m}}</option>
+        </select>
+      
+        <label for="subject">Subject</label>
+        <input type="text" class="form-control" id="subject"
+        [(ngModel)]="model.subject" name="subject">
+
+        <label for="subjectAdjective">Adjective (Subject)</label>
+        <input type="text" class="form-control" id="subjectAdjective"
+        [(ngModel)]="model.subjectAdjective" name="subjectAdjective">
+
+        <label for="isSubjectPlural">Is the subject plural?</label>
+        <select class="form-control" id="isSubjectPlural"
+          [(ngModel)] = "model.isSubjectPlural" name="isSubjectPlural">
+          <option *ngFor="let isPluralSubject of isSubjectPlural" [value]="isPluralSubject">{{isPluralSubject}}</option>
+        </select>
+      
+        <label for="directObject">Direct Object</label>
+        <input type="text" class="form-control" id="directObject"
+        [(ngModel)]="model.directObject" name="directObject">
+
+        <label for="directObjectAdjective">Adjective (Direct Object)</label>
+        <input type="text" class="form-control" id="directObjectAdjective"
+        [(ngModel)]="model.directObjectAdjective" name="directObjectAdjective">
+
+        <label for="isDOPlural">Is the direct object plural?</label>
+        <select class="form-control" id="isDOPlural"
+          [(ngModel)] = "model.isDOPlural" name="isDOPlural">
+          <option *ngFor="let isPluralDO of isDOPlural" [value]="isPluralDO">{{isPluralDO}}</option>
+        </select>
+      
+        <label for="indirectObject">Indirect Object</label>
+        <input type="text" class="form-control" id="indirectObject"
+        [(ngModel)]="model.indirectObject" name="indirectObject">
+
+        <label for="indirectObjectAdjective">Adjective (IndirectObject)</label>
+        <input type="text" class="form-control" id="indirectObjectAdjective"
+        [(ngModel)]="model.indirectObjectAdjective" name="indirectObjectAdjective">
+    
+        <label for="isIOPlural">Is the indirect object plural?</label>
+        <select class="form-control" id="isIOPlural"
+          [(ngModel)] = "model.isIOPlural" name="isIOPlural">
+          <option *ngFor="let isPluralIO of isIOPlural" [value]="isPluralIO">{{isPluralIO}}</option>
+        </select>
+
+        <label for="verb">Verb</label>
+        <input type="text" class="form-control" id="verb"
+        [(ngModel)]="model.verb" name="verb">
+
+        <label for="adverb">Adverb</label>
+        <input type="text" class="form-control" id="adverb"
+        [(ngModel)]="model.adverb" name="adverb">
+      
+        <label for="preposition">Preposition</label>
+        <input type="text" class="form-control" id="preposition"
+        [(ngModel)]="model.preposition" name="preposition">
+      
+        <label for="interrogative">Interrogative</label>
+        <input type="text" class="form-control" id="interrogative"
+        [(ngModel)]="model.interrogative" name="interrogative">
+      
+        <label for="temporal">Time</label>
+        <select class="form-control" id="temporal"
+          [(ngModel)] = "model.temporal" name="temporal">
+          <option *ngFor="let time of temporal" [value]="time">{{time}}</option>
+        </select>
+      
+        <label for="isNegative">Negation</label>
+        <select class="form-control" id="isNegative"
+          [(ngModel)] = "model.isNegative" name="isNegative">
+          <option *ngFor="let neg of isNegative" [value]="neg">{{neg}}</option>
+        </select>
+      </div>
+  
+      <button type="submit" class="btn btn-success" [disabled]="!translatorForm.form.valid">Submit</button>
+  
+    </form>
+  </div>
+  
+  <div [hidden]="!submitted">
+    <h2>You submitted the following:</h2>
+    <div class="row">
+      <div class="col-xs-3">Mood</div>
+      <div class="col-xs-9">{{ model.mood }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Subject</div>
+      <div class="col-xs-9">{{ model.subject }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Subject Adjective</div>
+      <div class="col-xs-9">{{ model.subjectAdjective }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Is the subject plural?</div>
+      <div class="col-xs-9">{{ model.isSubjectPlural }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Direct Object</div>
+      <div class="col-xs-9">{{ model.directObject }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Direct Object Adjective</div>
+      <div class="col-xs-9">{{ model.directObjectAdjective }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Is the direct object plural?</div>
+      <div class="col-xs-9">{{ model.isDOPlural }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Indirect Object</div>
+      <div class="col-xs-9">{{ model.indirectObject }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Indirect Object Adjective</div>
+      <div class="col-xs-9">{{ model.indirectObjectAdjective }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Is the indirect object plural?</div>
+      <div class="col-xs-9">{{ model.isIOPlural }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Verb</div>
+      <div class="col-xs-9">{{ model.verb }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Adverb</div>
+      <div class="col-xs-9">{{ model.adverb }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Preposition</div>
+      <div class="col-xs-9">{{ model.preposition }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Interrogative</div>
+      <div class="col-xs-9">{{ model.interrogative }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Time</div>
+      <div class="col-xs-9">{{ model.temporal }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Negation</div>
+      <div class="col-xs-9">{{ model.isNegative }}</div>
+    </div>
+    <br>
+    <button type="button" class="btn btn-primary" (click)="onEdit()">Edit</button>
+  
+    <br>
+    <h2>Translation:</h2>
+    <h3>{{res}}</h3>
+  
+  </div>
+  
+  </div>
+  
